@@ -1,10 +1,11 @@
-import Navbar from "./Components/Navbar";
+import Header from "./Components/Header";
+
 import "./index.css";
 
 function App() {
   return (
-    <div className="max-w-2xl mx-auto">
-      <Navbar />
+    <div className=" mx-auto">
+      <Header />
     </div>
   );
 }

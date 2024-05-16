@@ -112,6 +112,102 @@ const MessageComponent = () => {
 
         <div className="bg-white mt-3 px-1">
           <p className="text-[14px] text-wrap">Hi hello how are you</p>
+
+          {/* likes total */}
+          <div className="mt-3">
+            {/* like shoud appear here */}
+            im comment
+          </div>
+
+          <hr className="mt-3 " />
+
+          {/*================ reactions====== */}
+          <div className="flex items-center justify-between px-10 mt-3">
+            {/* like */}
+
+            <div className="flex gap-1 items-center cursor-pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1.5em"
+                height="1.5em"
+                viewBox="0 0 24 24"
+                className="text-gray-700  "
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 10v12m8-16.12L14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88"
+                ></path>
+              </svg>
+
+              <small className="text-gray-700 font-semibold text-[14px]">
+                Like
+              </small>
+            </div>
+
+            {/* comment */}
+
+            <div className="flex gap-1 items-center cursor-pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1.5em"
+                height="1.5em"
+                viewBox="0 0 22 22"
+                className="text-gray-700"
+              >
+                <path
+                  fill="currentColor"
+                  d="M2 2h18v1h1v14h-1v1h-8v1h-1v1h-1v1H6v-3H2v-1H1V3h1zm1 2v12h5v3h1v-1h1v-1h1v-1h8V4zm2 3h12v2H5zm0 4h10v2H5z"
+                ></path>
+              </svg>
+              <small className="text-gray-700 font-semibold text-[14px]">
+                Comment
+              </small>
+            </div>
+
+            {/* repost */}
+
+            <div className="flex gap-1 items-center cursor-pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1.5em"
+                height="1.5em"
+                viewBox="0 0 24 24"
+                className="text-gray-700"
+              >
+                <path
+                  fill="currentColor"
+                  d="M7 7h10v1.79c0 .45.54.67.85.35l2.79-2.79c.2-.2.2-.51 0-.71l-2.79-2.79a.5.5 0 0 0-.85.36V5H6c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1V7zm10 10H7v-1.79c0-.45-.54-.67-.85-.35l-2.79 2.79c-.2.2-.2.51 0 .71l2.79 2.79a.5.5 0 0 0 .85-.36V19h11c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v3z"
+                ></path>
+              </svg>
+              <small className="text-gray-700 font-semibold text-[14px]">
+                Repost
+              </small>
+            </div>
+
+            {/* share*/}
+
+            <div className="flex gap-1 items-center cursor-pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1.5em"
+                height="1.5em"
+                viewBox="0 0 24 24"
+                className="text-gray-700"
+              >
+                <path
+                  fill="currentColor"
+                  d="M1.946 9.315c-.522-.174-.527-.455.01-.634L21.044 2.32c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8l-8 6z"
+                ></path>
+              </svg>
+              <small className="text-gray-700 font-semibold text-[14px]">
+                Share
+              </small>
+            </div>
+          </div>
         </div>
       </div>
     </>

@@ -1,7 +1,7 @@
 import Header from "./Header";
 import LeftsideComponent from "./LeftsideComponent";
 import MiddleComponent from "./MiddleComponent";
-import "./index.css";
+// import "./index.css";
 
 const MainPage = () => {
   return (

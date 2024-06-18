@@ -1,23 +1,39 @@
 import { Avatar } from "@mui/material";
-import React from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import MessageComponent from "./MessageComponent";
 
-const MiddleComponent = () => {
+const MiddleComponent: React.FC = () => {
+  const [messages, setMessages] = useState<string[]>([]);
+  const [inputValue, setInputValue] = useState<string>("");
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (inputValue.trim()) {
+      setMessages([...messages, inputValue]);
+      setInputValue("");
+    }
+  };
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+
   return (
     <section className="flex flex-col gap-1 w-full">
       <div className="md:mt-4 py-5 rounded-xl bg-white w-full h-fit">
-        <div className="flex items-center gap-2 px-5 ">
+        <form onSubmit={handleSubmit} className="flex items-center gap-2 px-5 ">
           <Avatar
             src="https://bsmedia.business-standard.com/_media/bs/img/article/2022-03/24/full/1648127845-5808.jpg"
-            className=""
             sx={{ width: 50, height: 50 }}
           />
           <input
             type="text"
             placeholder="Start a post"
             className="py-2 px-5 rounded-full border-[1.5px] border-gray-400 placeholder-gray-400 font-semibold w-full"
+            value={inputValue}
+            onChange={handleInputChange}
           />
-        </div>
+        </form>
 
         {/* icons */}
         <div className="flex px-10 justify-between items-center mt-5">
@@ -95,7 +111,9 @@ const MiddleComponent = () => {
       </div>
 
       {/* message */}
-      <MessageComponent />
+      {messages.map((msg, index) => (
+        <MessageComponent key={index} message={msg} />
+      ))}
     </section>
   );
 };

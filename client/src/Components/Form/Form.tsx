@@ -2,13 +2,14 @@ import FormInput from "./FormInput";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface FormData {
   fullName: string;
   profileUrl: string;
   backgroundUrl: string;
   bio: string;
+  email: string;
   password: string;
 }
 
@@ -24,10 +25,11 @@ const formSchema = z.object({
   password: z
     .string()
     .min(8, { message: "Password should contain at least 8 characters" }),
+  email: z.string().email({ message: "Invaid Email Address" }),
 });
 
 const Form = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const {
     formState: { errors },
     register,
@@ -40,7 +42,7 @@ const Form = () => {
     try {
       console.log(data);
       alert("Account created successfully");
-      // navigate("/login");
+      navigate("/login");
       reset();
     } catch (err) {
       console.log(err);
@@ -48,12 +50,13 @@ const Form = () => {
   };
 
   const handleLogin = () => {
-    // navigate("/login");
+    navigate("/login");
     alert("hi");
   };
 
   return (
-    <div>
+    <div className="px-6 py-8 max-w-2xl mx-auto mt-20 rounded-md bg-gray-100">
+      <h1 className="text-blue-700 font-bold text-3xl text-center">SIGN UP</h1>
       <form onSubmit={handleSubmit(formSubmit)}>
         {/* full name */}
         <FormInput
@@ -63,6 +66,15 @@ const Form = () => {
           placeholder={"Enter your fullname"}
           error={errors.fullName}
           register={register("fullName")}
+        />
+        {/* email */}
+        <FormInput
+          type={"text"}
+          label={"Email Address"}
+          name={"email"}
+          placeholder={"Enter your email address"}
+          error={errors.email}
+          register={register("email")}
         />
         {/* Profile url */}
         <FormInput

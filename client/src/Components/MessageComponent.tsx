@@ -1,6 +1,9 @@
 import { Avatar } from "@mui/material";
+interface Props {
+  message: string;
+}
 
-const MessageComponent = () => {
+const MessageComponent: React.FC<Props> = (props) => {
   return (
     <>
       <div className="bg-white mt-4 rounded-md px-4 py-4 ">
@@ -111,12 +114,12 @@ const MessageComponent = () => {
         {/* ===================message========== */}
 
         <div className="bg-white mt-3 px-1">
-          <p className="text-[14px] text-wrap">Hi hello how are you</p>
+          <p className="text-[14px] text-wrap">{props.message}</p>
 
           {/* likes total */}
           <div className="mt-3">
             {/* like shoud appear here */}
-            im comment
+            <small> 10 comments</small>
           </div>
 
           <hr className="mt-3 " />

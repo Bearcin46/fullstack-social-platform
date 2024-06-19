@@ -1,11 +1,9 @@
 import { Avatar } from "@mui/material";
 interface Props {
   message: string;
-  name: string;
-  img: string;
 }
 
-const MessageComponent: React.FC<Props> = (props) => {
+const NewMessage: React.FC<Props> = (props) => {
   return (
     <>
       <div className="bg-white mt-4 rounded-md px-4 py-4 ">
@@ -15,7 +13,7 @@ const MessageComponent: React.FC<Props> = (props) => {
             {/* ================left========= */}
             {/* picture */}
             <Avatar
-              src={props.img}
+              src="https://img.freepik.com/free-photo/portrait-young-happy-business-woman-with-laptop-with-win-gesture_231208-245.jpg"
               className="cursor-pointer"
               sx={{ width: 50, height: 50 }}
             />
@@ -25,7 +23,7 @@ const MessageComponent: React.FC<Props> = (props) => {
               <div className="flex items-center gap-1 h-[14px] ">
                 {/* name */}
                 <small className="font-semibold text-[16px] cursor-pointer">
-                  {props.name}
+                  Bearcin Sweety
                 </small>
                 {/* svg */}
                 <svg
@@ -52,7 +50,7 @@ const MessageComponent: React.FC<Props> = (props) => {
 
               {/* time */}
               <div className="flex gap-1 items-center">
-                <small>12hr</small>
+                <small>now</small>
                 {/* dot */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +119,7 @@ const MessageComponent: React.FC<Props> = (props) => {
           {/* likes total */}
           <div className="mt-3">
             {/* like shoud appear here */}
-            <small className="text-gray-600"> 10 comments</small>
+            <small> 0 comments</small>
           </div>
 
           <hr className="mt-3 " />
@@ -219,4 +217,4 @@ const MessageComponent: React.FC<Props> = (props) => {
   );
 };
 
-export default MessageComponent;
+export default NewMessage;

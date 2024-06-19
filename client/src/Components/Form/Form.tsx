@@ -3,6 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 interface FormData {
   fullName: string;
@@ -41,9 +42,11 @@ const Form = () => {
   const formSubmit: SubmitHandler<FormData> = async (data) => {
     try {
       console.log(data);
+      const response = await axios.post("http://localhost:3000/signup", data);
       alert("Account created successfully");
       navigate("/login");
       reset();
+      return response.data;
     } catch (err) {
       console.log(err);
     }
@@ -51,7 +54,7 @@ const Form = () => {
 
   const handleLogin = () => {
     navigate("/login");
-    alert("hi");
+    alert("redirected to login page");
   };
 
   return (

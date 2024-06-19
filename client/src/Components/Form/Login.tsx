@@ -4,23 +4,15 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
 
+import axios from "axios";
+
 interface FormData {
-  fullName: string;
-  profileUrl: string;
-  backgroundUrl: string;
-  bio: string;
   password: string;
+  email: string;
 }
 
 const formSchema = z.object({
-  fullName: z
-    .string()
-    .min(3, { message: "Name should contain at least 3 characters" })
-    .max(20, { message: "Name should not exceed 20 characters" }),
-  profileUrl: z
-    .string()
-    .min(10, { message: "Please enter valid URL" })
-    .max(200, { message: "Please enter valid URL" }),
+  email: z.string().email({ message: "Invaid Email Address" }),
   password: z
     .string()
     .min(8, { message: "Password should contain at least 8 characters" }),
@@ -39,7 +31,10 @@ const Login = () => {
   const formSubmit: SubmitHandler<FormData> = async (data) => {
     try {
       console.log(data);
-      alert("Account created successfully");
+      const response = await axios.post("http://localhost:3000/login", data);
+      const { user } = response.data;
+      localStorage.setItem("user", JSON.stringify(user));
+      alert("login successfull");
       navigate("/feed");
       reset();
     } catch (err) {
@@ -49,31 +44,23 @@ const Login = () => {
 
   const handleSignup = () => {
     navigate("/");
-    alert("hi");
+    alert("You are redirected to signup page");
   };
 
   return (
     <div className="px-6 py-8 max-w-2xl mx-auto mt-20 rounded-md bg-gray-100">
       <h1 className="text-blue-700 font-bold text-3xl text-center">LOGIN</h1>
       <form onSubmit={handleSubmit(formSubmit)}>
-        {/* full name */}
+        {/* email */}
         <FormInput
           type={"text"}
-          label={"Full Name"}
-          name={"fullName"}
-          placeholder={"Enter your fullname"}
-          error={errors.fullName}
-          register={register("fullName")}
+          label={"Email Address"}
+          name={"email"}
+          placeholder={"Enter your email"}
+          error={errors.email}
+          register={register("email")}
         />
-        {/* Profile url */}
-        <FormInput
-          type={"text"}
-          label={"Profile Url"}
-          name={"profileUrl"}
-          placeholder={"Profile picture link"}
-          error={errors.profileUrl}
-          register={register("profileUrl")}
-        />
+
         {/* Password */}
         <FormInput
           type={"password"}

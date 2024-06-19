@@ -12,8 +12,8 @@ const LeftsideComponent = () => {
             className="bg-red-600 w-full rounded-t-xl object-cover h-24 "
           />
           <Avatar
-            src="https://bsmedia.business-standard.com/_media/bs/img/article/2022-03/24/full/1648127845-5808.jpg"
-            className=" inset-y-[-40px] border-2 border-white"
+            src="https://img.freepik.com/free-photo/portrait-young-happy-business-woman-with-laptop-with-win-gesture_231208-245.jpg"
+            className=" inset-y-[-40px] border-2 border-white objec-cover"
             sx={{ width: 78, height: 78 }}
           />
 

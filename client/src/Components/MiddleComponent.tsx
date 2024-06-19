@@ -1,6 +1,7 @@
 import { Avatar } from "@mui/material";
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import MessageComponent from "./MessageComponent";
+import NewMessage from "./NewMessage";
 
 const MiddleComponent: React.FC = () => {
   const [messages, setMessages] = useState<string[]>([]);
@@ -9,7 +10,7 @@ const MiddleComponent: React.FC = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (inputValue.trim()) {
-      setMessages([...messages, inputValue]);
+      setMessages([inputValue, ...messages]);
       setInputValue("");
     }
   };
@@ -23,7 +24,7 @@ const MiddleComponent: React.FC = () => {
       <div className="md:mt-4 py-5 rounded-xl bg-white w-full h-fit">
         <form onSubmit={handleSubmit} className="flex items-center gap-2 px-5 ">
           <Avatar
-            src="https://bsmedia.business-standard.com/_media/bs/img/article/2022-03/24/full/1648127845-5808.jpg"
+            src="https://img.freepik.com/free-photo/portrait-young-happy-business-woman-with-laptop-with-win-gesture_231208-245.jpg"
             sx={{ width: 50, height: 50 }}
           />
           <input
@@ -112,8 +113,22 @@ const MiddleComponent: React.FC = () => {
 
       {/* message */}
       {messages.map((msg, index) => (
-        <MessageComponent key={index} message={msg} />
+        <NewMessage key={index} message={msg} />
       ))}
+      <MessageComponent
+        message={"Today is better than tomorrow do it now"}
+        name={"Alex Hales"}
+        img={
+          "https://img.freepik.com/free-photo/businesswoman-browsing-laptop-street_23-2147787729.jpg"
+        }
+      />
+      <MessageComponent
+        message={"All that begins well ends well"}
+        name={"Josina Angel"}
+        img={
+          "https://img.freepik.com/premium-photo/business-woman-working-computer-office_118454-17652.jpg"
+        }
+      />
     </section>
   );
 };

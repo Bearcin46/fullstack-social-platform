@@ -85,7 +85,7 @@ const Navbar = () => {
           <Avatar
             sx={{ width: 28, height: 28 }}
             className="hover:text-gray-500  "
-            src="https://bsmedia.business-standard.com/_media/bs/img/article/2022-03/24/full/1648127845-5808.jpg"
+            src="https://img.freepik.com/free-photo/portrait-young-happy-business-woman-with-laptop-with-win-gesture_231208-245.jpg"
           />
           <div className="md:flex  items-center hidden ">
             <small>Me</small>
